@@ -68,7 +68,7 @@ def grade_p2(globals):
     my_df = globals["my_dataframe"]
 
     passed = True
-    if len(my_dataframe) < 3:
+    if len(my_df) < 3:
         print("Error! Your DataFrame should contain at least 3 rows or data points.")
         passed = False
     
