@@ -22,6 +22,6 @@ def grade_p2(globals):
     if format != "%A":
         print("Try again! You can do this!")
     else:
-        print("You got it!")
+        print("You got it! Looks like Friday the 14th should have been the unlucky date then...")
 
     return
