@@ -50,7 +50,7 @@ def grade_p1(globals):
     if names.name != 'Name':
         print("You forgot to specify the name of the names Series. Make sure to use 'name='Name'' when creating the series!")
         return
-    if ages.name != "Ages":
+    if ages.name != "Age":
         print("You forgot to specify the name of the Age series. Make sure to use 'name='Age'' when creating the series!")
     if heights.name != "Height":
         print("You forgot to specify the name of the Height series. Make sure to use 'name='Height'' when creating the series!")
