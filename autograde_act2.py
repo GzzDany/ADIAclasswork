@@ -5,7 +5,7 @@ def grade_p1(globals):
     
     format = globals["format"]
 
-    if format != "%B $d, %Y at %H:%M":
+    if format != "%B %d, %Y at %H:%M":
         print("Try again! You can do this!")
     else:
         print("You got it!")
