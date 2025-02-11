@@ -55,3 +55,64 @@ def grade_p2(globals):
       print(f"You did not convert {col} to float.")
   if passed:
     print("Good job! You got it!")
+
+
+def grade_p3(globals):
+  if "df" not in globals:
+    print("Error. The variable df is not defined. ")
+    return
+  if type(df) != pd.DataFrame:
+    print("Error. The variable df should be a pandas DataFrame")
+  columns_datetime_ans = ["tpep_pickup_datetime", "tpep_dropoff_datetime"]
+  passed = True
+  for col in columns_datetime_ans:
+    if df.dtypes[col] != '<M8[ns]':
+      passed = False
+      print(f"You did not convert {col} to datetime.")
+  if passed:
+    print("Good job! You got it!")
+
+def grade_p4(globals):
+  if "num_rows" not in globals:
+    print("Error, the variable num_rows is not defined")
+    return
+  if globals["num_rows"] != 2964624:
+    print("Wrong answer, try again! ")
+  else:
+    print("You got it!")
+
+def grade_p5(globals):
+  if "passenger_count" not in globals:
+    print("Error, the variable passenger_count is not defined")
+    return
+  if globals["passenger_count"] != 51:
+    print("Wrong answer, try again! ")
+  else:
+    print("You got it!")
+
+def grade_p6(globals):
+  if "busiest_vendor" not in globals:
+    print("Error, the variable busiest_vendor is not defined")
+    return
+  if globals["busiest_vendor"] != 2:
+    print("Wrong answer, try again! ")
+  else:
+    print("You got it!")
+
+def grade_p7(globals):
+  if "longest_trip" not in globals:
+    print("Error, the variable longest_trip is not defined")
+    return
+  if globals["longest_trip"] != 312722.3:
+    print("Wrong answer, try again! ")
+  else:
+    print("You got it!")
+
+def grade_p8(globals):
+  if "largest_fare" not in globals:
+    print("Error, the variable largest_fare is not defined")
+    return
+  if globals["largest_fare"] != 5000:
+    print("Wrong answer, try again! ")
+  else:
+    print("You got it!")
