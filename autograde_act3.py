@@ -41,4 +41,17 @@ def grade_p1(globals):
     print("You should fix your code until you pass this section, because this will be required in the next part!")
 
 
-
+def grade_p2(globals):
+  if "df" not in globals:
+    print("Error. The variable df is not defined. ")
+    return
+  if type(df) != pd.DataFrame:
+    print("Error. The variable df should be a pandas DataFrame")
+  columns_float_ans = ["passenger_count", "trip_distance", "RatecodeID", "fare_amount", "extra", "mta_tax", "tip_amount", "tolls_amount", "improvement_surcharge", "total_amount", "congestion_surcharge", "Airport_fee"]
+  passed = True
+  for col in columns_float_ans:
+    if df.dtypes[col] != 'float64':
+      passed = False
+      print(f"You did not convert {col} to float.")
+  if passed:
+    print("Good job! You got it!")
