@@ -116,3 +116,14 @@ def grade_p8(globals):
     print("Wrong answer, try again! ")
   else:
     print("You got it!")
+
+
+def grade_p9(globals):
+  if "cheapest_ride" not in globals:
+    print("Error, the variable cheapest_ride is not defined")
+    return
+  if globals["cheapest_ride"] != -899.0:
+    print("Wrong answer, try again! ")
+  else:
+    print("You got it! Your code is correct, though it seems the dataset may contain some errors worth cleaning...")
+    print("A little teaser for what's to come and why it matters. ")
