@@ -45,6 +45,7 @@ def grade_p2(globals):
   if "df" not in globals:
     print("Error. The variable df is not defined. ")
     return
+  df = globals["df"]
   if type(df) != pd.DataFrame:
     print("Error. The variable df should be a pandas DataFrame")
   columns_float_ans = ["passenger_count", "trip_distance", "RatecodeID", "fare_amount", "extra", "mta_tax", "tip_amount", "tolls_amount", "improvement_surcharge", "total_amount", "congestion_surcharge", "Airport_fee"]
@@ -61,6 +62,7 @@ def grade_p3(globals):
   if "df" not in globals:
     print("Error. The variable df is not defined. ")
     return
+  df = globals["df"]
   if type(df) != pd.DataFrame:
     print("Error. The variable df should be a pandas DataFrame")
   columns_datetime_ans = ["tpep_pickup_datetime", "tpep_dropoff_datetime"]
