@@ -45,7 +45,7 @@ def make_solution():
 
 df_sol = make_solution()
 
-def grade_p1(globals()):
+def grade_p1(globals):
   df = globals["df"]
   if "trip_distance_km" not in df.columns:
     print("Error. Did you name the column 'trip_distance_km' as expected?")
