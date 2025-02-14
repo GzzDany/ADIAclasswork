@@ -39,8 +39,8 @@ def make_solution():
   df_sol["trip_duration"] = (df_sol["tpep_dropoff_datetime"] - df_sol["tpep_pickup_datetime"]).dt.total_seconds()/60
   df_sol["hour_start"] = df_sol["tpep_pickup_datetime"].dt.hour
   df_sol["weekday"] = df_sol["tpep_pickup_datetime"].dt.day_name()
-  df_sol["average_speed"] = df_sol["trip_distance"]/(df_sol["trip_duration"]/60)
-  df_sol["length_category"] = df_sol["trip_distance"].apply(categorize_length_sol)
+  df_sol["average_speed"] = df_sol["trip_distance_km"]/(df_sol["trip_duration"]/60)
+  df_sol["length_category"] = df_sol["trip_distance_km"].apply(categorize_length_sol)
   df_sol["time_of_day"] = df_sol["hour_start"].apply(categorize_time_of_day_sol)
   return df_sol
 
