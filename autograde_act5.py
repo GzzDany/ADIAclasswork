@@ -51,7 +51,79 @@ def grade_p1(globals):
   df = globals["df"]
   if "trip_distance_km" not in df.columns:
     print("Error. Did you name the column 'trip_distance_km' as expected?")
-  if df_sol['trip_distance_km'].equals(df['trip_distance_km']):
+  elif df_sol['trip_distance_km'].equals(df['trip_distance_km']):
     print("Great job!")
   else:
     print("Are you sure you used the full 1.60934 to convert miles to kilometers?")
+
+
+def grade_p2(globals):
+  name = "tip_percentage"
+  df = globals["df"]
+  if name not in df.columns:
+    print(f"Error. Did you name the column '{name}' as expected?")
+  elif df_sol[name].equals(df[name]):
+    print("Great job!")
+  else:
+    print("Your results are not right... Did you multiply by 100?")
+
+
+def grade_p3(globals):
+  name = "trip_duration"
+  df = globals["df"]
+  if name not in df.columns:
+    print(f"Error. Did you name the column '{name}' as expected?")
+  elif df_sol[name].equals(df[name]):
+    print("Great job!")
+  else:
+    print("Your results are not right... Did you divide by 60 after obtaining the total seconds using dt.total_seconds()?")
+
+def grade_p4(globals):
+  name = "hour_start"
+  df = globals["df"]
+  if name not in df.columns:
+    print(f"Error. Did you name the column '{name}' as expected?")
+  elif df_sol[name].equals(df[name]):
+    print("Great job!")
+  else:
+    print("Your results are not right... Did you use dt.hour?")
+
+def grade_p5(globals):
+  name = "weekday"
+  df = globals["df"]
+  if name not in df.columns:
+    print(f"Error. Did you name the column '{name}' as expected?")
+  elif df_sol[name].equals(df[name]):
+    print("Great job!")
+  else:
+    print("Your results are not right... Did you use dt.day_name()?")
+
+def grade_p6(globals):
+  name = "average_speed"
+  df = globals["df"]
+  if name not in df.columns:
+    print(f"Error. Did you name the column '{name}' as expected?")
+  elif df_sol[name].equals(df[name]):
+    print("Great job!")
+  else:
+    print("Your results are not right... Did you divide trip_duration by 60?")
+
+def grade_p7(globals):
+  name = "length_category"
+  df = globals["df"]
+  if name not in df.columns:
+    print(f"Error. Did you name the column '{name}' as expected?")
+  elif df_sol[name].equals(df[name]):
+    print("Great job!")
+  else:
+    print("Your results are not right... Did you properly define your categoriging function and use .apply()?")
+
+def grade_p8(globals):
+  name = "time_of_day"
+  df = globals["df"]
+  if name not in df.columns:
+    print(f"Error. Did you name the column '{name}' as expected?")
+  elif df_sol[name].equals(df[name]):
+    print("Great job!")
+  else:
+    print("Your results are not right... Did you properly define your categoriging function and use .apply()?")
