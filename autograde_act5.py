@@ -49,14 +49,9 @@ df_sol = make_solution()
 
 def grade_p1(globals):
   df = globals["df"]
-  # print("Showing:")
-  print(df)
   if "trip_distance_km" not in df.columns:
     print("Error. Did you name the column 'trip_distance_km' as expected?")
   if df_sol['trip_distance_km'].equals(df['trip_distance_km']):
     print("Great job!")
   else:
     print("Are you sure you used the full 1.60934 to convert miles to kilometers?")
-
-
-  
