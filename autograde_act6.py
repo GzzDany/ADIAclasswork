@@ -56,7 +56,7 @@ def grade_p1(globals):
     return
   else:
     df = globals["df"]
-  if df.columns.equals(df_sol.columns) and df.index.equals(df_sol.index) and df.dtypes.equals(df_col.dtypes):
+  if df.columns.equals(df_sol.columns) and df.index.equals(df_sol.index) and df.dtypes.equals(df_sol.dtypes):
     print("Great!")
   else:
     print("Error. You did not correctly load the dataframe. Did you convert the pickup and dropoff time columns into datetime objects? These are always read as strings when loading datasets!")
