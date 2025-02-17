@@ -52,7 +52,7 @@ def grade_p1(globals):
     print("Error. Did you load the DataFrame into a variable called 'df'?")
     return
   else:
-    df = globals[df]
+    df = globals["df"]
   if df != df_sol:
     print("You didn't load the proper file into the variable df. Try again!")
   else:
