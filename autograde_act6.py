@@ -96,7 +96,8 @@ def grade_p4(globals):
   else:
     print("Try again. Did you extract the indices as instructed?")
     
- def grade_p5(globals):
+
+def grade_p5(globals):
   if "speed_first_many_passengers" not in globals:
     print("Error. You did not record your answer into the variable 'speed_first_many_passengers'. Ddi you run the cell above?")
     return
