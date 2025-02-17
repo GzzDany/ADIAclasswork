@@ -76,7 +76,27 @@ def grade_p2(globals):
   else:
     print("Not quite... try again!")
 
+def grade_p3(globals):
+  if "data_80_5" not in globals:
+    print("Error. You did not record your answer into the variable 'data_80_5'. Did you run the cell above?")
+    return
+  ans = df_sol.loc[55, "trip_duration"]
+  if math.isclose(globals["trip_duration_55"], ans, abs_tol=0.1):
+    print("Great!")
+  else:
+    print("Not quite... try again!")
 
+def grade_p4(globals):
+  if "inds_many_passengers" not in globals:
+    print("Error. You did not record your answer into the variable 'inds_many_passengers'. Ddi you run the cell above?")
+    return
+  ans = df_sol[df_sol["passenger_count"] > 4].index
+  if ans.equals(globals["inds_many_passengers"]):
+    print("Good job!")
+  else:
+    print("Try again. Did you extract the indices as instructed?")
+    
+    
 
 
 
