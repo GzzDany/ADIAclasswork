@@ -53,7 +53,7 @@ def grade_p1(globals):
     return
   else:
     df = globals["df"]
-  if df != df_sol:
-    print("You didn't load the proper file into the variable df. Try again!")
-  else:
+  if df.equals(df_sol):
     print("Great!")
+  else:
+    print("Error. You did not correctly load the dataframe. Make sure you make no modifications to it!")
