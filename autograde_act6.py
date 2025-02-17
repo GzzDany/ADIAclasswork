@@ -96,7 +96,16 @@ def grade_p4(globals):
   else:
     print("Try again. Did you extract the indices as instructed?")
     
-    
+ def grade_p5(globals):
+  if "speed_first_many_passengers" not in globals:
+    print("Error. You did not record your answer into the variable 'speed_first_many_passengers'. Ddi you run the cell above?")
+    return
+  ind = df_sol[df_sol["passenger_count"] > 4].index[0]
+  ans = df_sol.loc[ind, "average_speed"]
+  if math.isclose(globals["speed_first_many_passengers"], ans, abs_tol=0.1):
+    print("Good job!")
+  else:
+    print("Try again. Did you extract the indices as instructed?")   
 
 
 
