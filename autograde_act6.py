@@ -158,7 +158,7 @@ def grade_p10(globals):
   if "mean_fare_vendor1" not in globals:
     print("Error. You did not record your answer into the variable 'mean_fare_vendor1'. Ddi you run the cell above?")
     return
-  ans = df_sol[(df_sol["VendorID"] == 1) & (df_sol["trip_distance"] >= 3)]["fare_amount"].mean()
+  ans = df_sol[(df_sol["VendorID"] == 1) & (df_sol["trip_distance_km"] >= 3)]["fare_amount"].mean()
   if math.isclose(globals["mean_fare_vendor1"], ans, abs_tol=0.1):
     print("Good job!")
   else:
