@@ -43,6 +43,8 @@ def make_solution():
   df_sol["length_category"] = df_sol["trip_distance_km"].apply(categorize_length_sol)
   df_sol["time_of_day"] = df_sol["hour_start"].apply(categorize_time_of_day_sol)
   df_sol.reset_index(drop=True, inplace=True)
+  df_sol["tpep_dropoff_datetime"] = df_sol["tpep_dropoff_datetime"].astype("datetime64[ns]")
+  df_sol["tpep_pickup_datetime"] = df_sol["tpep_pickup_datetime"].astype("datetime64[ns]")
   return df_sol
 
 
@@ -54,7 +56,7 @@ def grade_p1(globals):
     return
   else:
     df = globals["df"]
-  if df.equals(df_sol):
+  if df.columns.equals(df_sol.columns) and df.index.equals(df_sol.index) and df.dtypes.equals(df_col.dtypes):
     print("Great!")
   else:
-    print("Error. You did not correctly load the dataframe. Make sure you make no modifications to it!")
+    print("Error. You did not correctly load the dataframe. Did you convert the pickup and dropoff time columns into datetime objects? These are always read as strings when loading datasets!")
