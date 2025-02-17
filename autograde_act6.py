@@ -45,6 +45,9 @@ def make_solution():
   df_sol.reset_index(drop=True, inplace=True)
   df_sol["tpep_dropoff_datetime"] = df_sol["tpep_dropoff_datetime"].astype("datetime64[ns]")
   df_sol["tpep_pickup_datetime"] = df_sol["tpep_pickup_datetime"].astype("datetime64[ns]")
+  int_cols = ["VendorID", "PULocationID", "DOLocationID", "hour_start"]
+  for col in int_cols:
+      df_sol[col] = df_sol[col].astype("int64")
   return df_sol
 
 
