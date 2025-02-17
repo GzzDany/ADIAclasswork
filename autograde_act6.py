@@ -63,3 +63,25 @@ def grade_p1(globals):
     print("Great!")
   else:
     print("Error. You did not correctly load the dataframe. Did you convert the pickup and dropoff time columns into datetime objects? These are always read as strings when loading datasets!")
+
+import math
+
+def grade_p2(globals):
+  if "trip_duration_55" not in globals:
+    print("Error. You did not record your answer into the variable 'trip_duration_55'. Did you run the cell above?")
+    return
+  ans = df_sol.loc[55, "trip_duration"]
+  if math.isclose(globals["trip_duration_55"], ans, abs_tol=0.1):
+    print("Great!")
+  else:
+    print("Not quite... try again!")
+
+
+
+
+
+
+
+
+
+  
