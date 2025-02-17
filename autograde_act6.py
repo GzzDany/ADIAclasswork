@@ -42,6 +42,7 @@ def make_solution():
   df_sol["average_speed"] = df_sol["trip_distance_km"]/(df_sol["trip_duration"]/60)
   df_sol["length_category"] = df_sol["trip_distance_km"].apply(categorize_length_sol)
   df_sol["time_of_day"] = df_sol["hour_start"].apply(categorize_time_of_day_sol)
+  df_sol.reset_index(drop=True, inplace=True)
   return df_sol
 
 
