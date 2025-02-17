@@ -14,7 +14,7 @@ def load_dataset():
   df_clean = df_clean[df_clean["total_amount"]>0]
 
   
-  return df
+  return df_clean
   
 def categorize_length_sol(length):
   if length > 5:
