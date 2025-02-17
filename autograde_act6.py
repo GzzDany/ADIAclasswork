@@ -135,7 +135,7 @@ def grade_p8(globals):
   if "passengers_max_speed" not in globals:
     print("Error. You did not record your answer into the variable 'passengers_max_speed'. Ddi you run the cell above?")
     return
-  max_speed_index = df_sol["average_speed"].indmax()
+  max_speed_index = df_sol["average_speed"].idxmax()
   ans = df_sol.loc[max_speed_index, "passenger_count"]
   if math.isclose(globals["passengers_max_speed"], ans, abs_tol=0.1):
     print("Good job!")
