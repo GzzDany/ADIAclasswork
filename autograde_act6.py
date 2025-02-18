@@ -1,5 +1,24 @@
 import pandas as pd
 
+def load_data():
+  df_sol = load_dataset()
+  df_sol["trip_distance_km"] = df_sol["trip_distance"]* 1.60934
+  df_sol["tip_percentage"] = (df_sol["tip_amount"]/df_sol["fare_amount"])*100
+  df_sol["trip_duration"] = (df_sol["tpep_dropoff_datetime"] - df_sol["tpep_pickup_datetime"]).dt.total_seconds()/60
+  df_sol["hour_start"] = df_sol["tpep_pickup_datetime"].dt.hour
+  df_sol["weekday"] = df_sol["tpep_pickup_datetime"].dt.day_name()
+  df_sol["average_speed"] = df_sol["trip_distance_km"]/(df_sol["trip_duration"]/60)
+  df_sol["length_category"] = df_sol["trip_distance_km"].apply(categorize_length_sol)
+  df_sol["time_of_day"] = df_sol["hour_start"].apply(categorize_time_of_day_sol)
+  df_sol.reset_index(drop=True, inplace=True)
+  df_sol["tpep_dropoff_datetime"] = df_sol["tpep_dropoff_datetime"].astype("datetime64[ns]")
+  df_sol["tpep_pickup_datetime"] = df_sol["tpep_pickup_datetime"].astype("datetime64[ns]")
+  int_cols = ["VendorID", "PULocationID", "DOLocationID", "hour_start"]
+  for col in int_cols:
+      df_sol[col] = df_sol[col].astype("int64")
+  return df_sol
+
+
 def load_dataset():
   # URL to the dataset (Example: January 2024 Yellow Taxi Data in Parquet format)
   url = "https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2024-01.parquet"
