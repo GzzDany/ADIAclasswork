@@ -85,7 +85,7 @@ def grade_p2(globals):
   else:
     print("Not quite... read your grouped data again!")
 
-  var = "total_fare_vendor2")
+  var = "total_fare_vendor2"
   if var not in globals:
     print(f"Error. The variable {var} is not defined. Did you run the cell above?")
     return
