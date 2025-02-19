@@ -148,7 +148,7 @@ def grade_p4(globals):
   else:
     print("Not quite... read your grouped data again!")
 
-def grade_p4(globals):
+def grade_p5(globals):
   var = "passenger_count_6_weekday"
   if var not in globals:
     print(f"Error. The variable {var} is not defined. Did you run the cell above?")
