@@ -50,7 +50,7 @@ def grade_p1(globals):
   else:
     print("Not quite... read your grouped data again!")
 
-  var = "passenger_count_with_highest_mean")
+  var = "passenger_count_with_highest_mean"
   if var not in globals:
     print(f"Error. The variable {var} is not defined. Did you run the cell above?")
     return
