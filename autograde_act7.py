@@ -1,5 +1,21 @@
 import pandas as pd
 
+def categorize_length_sol(length):
+  if length > 5:
+    return "long"
+  else:
+    return "short"
+
+def categorize_time_of_day_sol(hour):
+  if hour < 6:
+    return "late night"
+  elif hour < 12:
+    return "morning"
+  elif hour < 21:
+    return "afternoon"
+  else:
+    return "night"
+
 def load_data():
   df_sol = load_dataset()
   df_sol["trip_distance_km"] = df_sol["trip_distance"]* 1.60934
