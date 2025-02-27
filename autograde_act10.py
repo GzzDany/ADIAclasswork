@@ -20,8 +20,13 @@ def categorize_time_of_day_sol(hour):
 def load_data():
   df_sol = load_dataset()
   df_sol["trip_distance_km"] = df_sol["trip_distance"]* 1.60934
+  
   df_sol["tip_percentage"] = (df_sol["tip_amount"]/df_sol["fare_amount"])*100
   df_sol["trip_duration"] = (df_sol["tpep_dropoff_datetime"] - df_sol["tpep_pickup_datetime"]).dt.total_seconds()/60
+
+  df_sol = df_sol[df_sol["trip_duration"]>0]
+  df_sol = df_sol[df_sol["trip_duration"]<120]
+  
   df_sol["hour_start"] = df_sol["tpep_pickup_datetime"].dt.hour
   df_sol["weekday"] = df_sol["tpep_pickup_datetime"].dt.day_name()
   df_sol["average_speed"] = df_sol["trip_distance_km"]/(df_sol["trip_duration"]/60)
@@ -33,6 +38,8 @@ def load_data():
   int_cols = ["VendorID", "PULocationID", "DOLocationID", "hour_start"]
   for col in int_cols:
       df_sol[col] = df_sol[col].astype("int64")
+
+  # df_clean = df_clean.sample(n=100000, random_state=42)
   return df_sol
 
 
@@ -48,13 +55,10 @@ def load_dataset():
   df_clean = df_clean[df_clean["fare_amount"]>0]
   df_clean = df_clean[df_clean["tip_amount"]>=0]
   df_clean = df_clean[df_clean["total_amount"]>0]
-  df_clean = df_clean[df_clean["trip_duration"]>0]
 
-  df_clean = df_clean[df_clean["trip_duration"]<120]
   df_clean = df_clean[df_clean["trip_distance"]<100]
   df_clean = df_clean[df_clean["fare_amount"]<100]
 
-  df_clean = df_clean.sample(n=100000, random_state=42)
 
   
   return df_clean
