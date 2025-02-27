@@ -1,5 +1,7 @@
 import pandas as pd
 import math
+from scipy.stats import probplot
+
 
 def categorize_length_sol(length):
   if length > 5:
@@ -62,3 +64,11 @@ def load_dataset():
 
   
   return df_clean
+
+def plot_QQ(df, column):
+  fig, ax = plt.subplots(1, 1, figsize=(12, 5))
+  # QQ-Plot
+  probplot(df[column], dist="norm", plot=ax)
+  ax.set_title(f"QQ-Plot of {column}")
+  
+  plt.show()
