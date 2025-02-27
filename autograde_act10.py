@@ -1,6 +1,7 @@
 import pandas as pd
 import math
 from scipy.stats import probplot
+import matplotlib.pyplot as plt
 
 import pandas as pd
 
