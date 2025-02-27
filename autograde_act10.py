@@ -2,6 +2,13 @@ import pandas as pd
 import math
 from scipy.stats import probplot
 
+import pandas as pd
+
+def load_dataset_body():
+  df = pd.read_csv("ADIAclasswork/body_measurements_clean.csv", index_col="Unnamed: 0")
+  df.reset_index(inplace=True, drop=True)
+  return df
+
 
 def categorize_length_sol(length):
   if length > 5:
