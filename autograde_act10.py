@@ -54,7 +54,7 @@ def load_dataset():
   df_clean = df_clean[df_clean["trip_distance"]<100]
   df_clean = df_clean[df_clean["fare_amount"]<100]
 
-  # df_clean = df_clean.sample(n=100000, random_state=42)
+  df_clean = df_clean.sample(n=100000, random_state=42)
 
   
   return df_clean
