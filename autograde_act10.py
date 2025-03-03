@@ -8,11 +8,11 @@ from scipy.stats import shapiro, normaltest, anderson, probplot, mstats
 import pandas as pd
 
 def load_data_fbg():
-  df = pd.read_csv("blood_glucose.csv")
+  df = pd.read_csv("ADIAclasswork/blood_glucose.csv")
   return df
 
 def load_data_height():
-  df = pd.read_csv("heights.csv")
+  df = pd.read_csv("ADIAclasswork/heights.csv")
   return df
 
 def load_dataset_body():
