@@ -1,7 +1,9 @@
-import pandas as pd
-import math
-from scipy.stats import probplot
+import pandas as pd 
+import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
+import matplotlib.pyplot as plt
+from scipy.stats import shapiro, normaltest, anderson, probplot, mstats
 
 import pandas as pd
 
@@ -73,10 +75,39 @@ def load_dataset():
   
   return df_clean
 
-def plot_QQ(df, column):
-  fig, ax = plt.subplots(1, 1, figsize=(12, 5))
-  # QQ-Plot
-  probplot(df[column], dist="norm", plot=ax)
-  ax.set_title(f"QQ-Plot of {column}")
-  
-  plt.show()
+def plot_hist_qq(data, column, bins=40):
+    # Visualization
+    fig, ax = plt.subplots(1, 2, figsize=(12, 5))
+
+    # Histogram + KDE
+    sns.histplot(data[column], kde=True, ax=ax[0], bins=bins)
+    ax[0].set_title(f"Histogram of {column}")
+
+    median = data[column].median()
+    q1 = data[column].quantile(0.16)
+    q11 = data[column].quantile(0.84)
+    q2 = data[column].quantile(0.025)
+    q22 = data[column].quantile(0.975)
+    q3 = data[column].quantile(0.9965)
+    q33 = data[column].quantile(0.0035)
+
+
+
+    # Plot vertical lines
+    ax[0].axvline(median, color='red', linestyle='-', label='Median')
+    ax[0].axvline(q1, color='blue', linestyle='--', label='one sigma')
+    ax[0].axvline(q11, color='blue', linestyle='--', label='one sigma')
+    ax[0].axvline(q2, color='green', linestyle=':', label='2 sigma')
+    ax[0].axvline(q22, color='green', linestyle=':', label='2 sigma')
+    ax[0].axvline(q3, color='purple', linestyle=':', label='3 sigma')
+    ax[0].axvline(q33, color='purple', linestyle=':', label='3 sigma')  
+    # ax.axvline(z_neg1, color='purple', linestyle='-.', label='Z = -1')
+    # ax.axvline(z_pos1, color='purple', linestyle='-.', label='Z = 1')
+
+    # QQ-Plot
+    probplot(data[column], dist="norm", plot=ax[1])
+    ax[1].set_title(f"QQ-Plot of {column}")
+
+    plt.show()
+
+
