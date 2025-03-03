@@ -83,21 +83,22 @@ def load_dataset():
   
   return df_clean
 
-def plot_hist_qq(data, column, bins=40):
+def plot_hist_qq(df, column, bins=10, kde=True):
+    data = df[column].dropna()
     # Visualization
     fig, ax = plt.subplots(1, 2, figsize=(12, 5))
 
     # Histogram + KDE
-    sns.histplot(data[column], kde=True, ax=ax[0], bins=bins)
+    sns.histplot(data, kde=kde, ax=ax[0], bins=bins)
     ax[0].set_title(f"Histogram of {column}")
 
-    median = data[column].median()
-    q1 = data[column].quantile(0.16)
-    q11 = data[column].quantile(0.84)
-    q2 = data[column].quantile(0.025)
-    q22 = data[column].quantile(0.975)
-    q3 = data[column].quantile(0.9965)
-    q33 = data[column].quantile(0.0035)
+    median = data.median()
+    q1 = data.quantile(0.16)
+    q11 = data.quantile(0.84)
+    q2 = data.quantile(0.025)
+    q22 = data.quantile(0.975)
+    q3 = data.quantile(0.9965)
+    q33 = data.quantile(0.0035)
 
 
 
@@ -113,9 +114,7 @@ def plot_hist_qq(data, column, bins=40):
     # ax.axvline(z_pos1, color='purple', linestyle='-.', label='Z = 1')
 
     # QQ-Plot
-    probplot(data[column], dist="norm", plot=ax[1])
+    probplot(data, dist="norm", plot=ax[1])
     ax[1].set_title(f"QQ-Plot of {column}")
 
     plt.show()
-
-
