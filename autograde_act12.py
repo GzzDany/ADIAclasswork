@@ -19,7 +19,7 @@ def load_reviews():
   return df
 
 def load_order_items():
-  df = pd.read_csv("ADIAclasswork/olist_oder_items_dataset.csv")
+  df = pd.read_csv("ADIAclasswork/olist_order_items_dataset.csv")
   return df
 
 
