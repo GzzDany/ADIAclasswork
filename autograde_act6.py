@@ -17,7 +17,7 @@ def load_data():
   for col in int_cols:
       df_sol[col] = df_sol[col].astype("int64")
   ### Sampling to keep only 10% of the data: 
-  df_sol = df_sol.sample(frac=0.1, random_state=1234)
+  # df_sol = df_sol.sample(frac=0.1, random_state=1234)
   return df_sol
 
 
@@ -69,6 +69,7 @@ def make_solution():
   int_cols = ["VendorID", "PULocationID", "DOLocationID", "hour_start"]
   for col in int_cols:
       df_sol[col] = df_sol[col].astype("int64")
+  df_sol = df_sol.sample(frac=0.1, random_state=1234)
   return df_sol
 
 
