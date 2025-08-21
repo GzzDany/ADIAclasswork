@@ -82,6 +82,12 @@ def grade_p1(globals):
     return
   else:
     df = globals["df"]
+  if df.columns.equals(df_sol.columns):
+    print("Columns are ok")
+  if df.index.equals(df_sol.index):
+    print("Indexes are ok")
+  if df.dtypes.equals(df_sol.dtypes):
+    print("dtypes are ok")
   if df.columns.equals(df_sol.columns) and df.index.equals(df_sol.index) and df.dtypes.equals(df_sol.dtypes):
     print("Great!")
   else:
