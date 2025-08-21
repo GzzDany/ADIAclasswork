@@ -70,7 +70,7 @@ def make_solution():
   for col in int_cols:
       df_sol[col] = df_sol[col].astype("int64")
   df_sol = df_sol.sample(frac=0.1, random_state=1234)
-  df_sol.reset_index(inplace=True)
+  df_sol.reset_index(inplace=True, drop=True)
   return df_sol
 
 
